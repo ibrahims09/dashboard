@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let notesTextarea = document.getElementById('noteTextarea');
     let newsList = document.getElementById('newsList');
 
-    // Load saved links from localStorage
+    
     let savedLinks = JSON.parse(localStorage.getItem('savedLinks')) || [];
     savedLinks.forEach(link => addLinkToUI(link.title, link.url));
 
-    // Load saved notes from localStorage
+   
     notesTextarea.value = localStorage.getItem('savedNotes') || '';
 
     datetimeInput.addEventListener('input', function () {
@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (title !== '' && url !== '') {
             addLinkToUI(title, url);
 
-            // Save link to localStorage
+          
             savedLinks.push({ title, url });
             localStorage.setItem('savedLinks', JSON.stringify(savedLinks));
 
-            // Clear input fields after adding a link
+          
             linkTitleInput.value = '';
             linkURLInput.value = '';
         }
@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let listItem = button.parentElement;
         let linkTitle = listItem.querySelector('a').textContent;
 
-        // Remove link from UI
+       
         listItem.remove();
 
-        // Remove link from savedLinks array in localStorage
+       
         savedLinks = savedLinks.filter(link => link.title !== linkTitle);
         localStorage.setItem('savedLinks', JSON.stringify(savedLinks));
     }
@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                // Hämta URL för den randomiserade bilden
+              
                 const imageUrl = data.urls.regular;
 
-                // Uppdatera bakgrunden på body med den hämtade bilden
+               
                 document.body.style.backgroundImage = `url('${imageUrl}')`;
             })
             .catch(error => console.error('Error fetching random image:', error));
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Eventlistener för att spara anteckningar i localStorage när användaren skriver
+    
     notesTextarea.addEventListener('input', function () {
         localStorage.setItem('savedNotes', notesTextarea.value);
     });
