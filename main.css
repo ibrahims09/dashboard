@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrera vertikalt */
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  background-image: url('https://cdn.pixabay.com/photo/2022/07/26/11/53/swedish-7345629_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap; /* Använd wrap för att gå till nästa rad om det inte finns plats */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  margin: 10px; /* Avstånd mellan korten */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  color: lightyellow;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+

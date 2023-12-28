@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="mediaqueris.css">
+    <link rel="stylesheet" href="weather.css">
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="dashboard">
+  <div class="card">
+     <input type="datetime-local" id="datetimeInput">
+   </div>
+        <div class="card">
+            <h2 id="dashboardTitle" contenteditable="true"> Ibrahim Sheikh Dashboard</h2>
+        </div>
+        <div class="card link">
+            <h3>Mina länkar</h3>
+            <ul id="linksList"></ul>
+            <div>
+                <input type="text" id="linkTitle" placeholder="Link Title">
+                <input type="url" id="linkURL" placeholder="Link URL">
+                <button onclick="addLink()"><i class="fas fa-plus"></i> Add Link</button>
+            </div>
+     </div>
+ <div class="card notes">
+            <h3>Notes</h3>
+            <textarea id="noteTextarea" placeholder="Skriv ner dina tankar🤡"></textarea>
+</div>
+ <div class="card" id="newsSection">
+            <h2>Lokala Nyheter</h2>
+            <ul id="newsList"></ul>
+            <button class="btn btn-primary" onclick="fetchLatestNews()"> Nyheter</button>
+        </div>
+   <div class="card row">
+            <button class="btn btn-primary" onclick="fetchRandomImage()">Hämta ny bild</button>
+    </div>
+    <input type="text" id="searchbox" placeholder="Enter city">
+    <h2 id="cityName">City</h2>
+    <h1 id="temperature">Temperature</h1>
+    <span id="tempMinMax">Min. & Max. temp</span>
+    <h4 id="weather">Weather</h4>
+    <p id="weatherDescription">Weather Description</p>
+    <span id="wind">Wind Direction & Speed</span>
+  </div>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
