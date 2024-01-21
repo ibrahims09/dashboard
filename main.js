@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let dashboard = document.getElementById('dashboard');
     let datetimeInput = document.getElementById('datetimeInput');
     let linksList = document.getElementById('linksList');
     let linkTitleInput = document.getElementById('linkTitle');
@@ -128,38 +127,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const searchValue = document.querySelector("#searchbox");
-    searchValue.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-            const cityName = document.getElementById("cityName");
-            const temperature = document.getElementById("temperature");
-            const tempMinMax = document.getElementById("tempMinMax");
-            const weather = document.getElementById("weather");
-            const weatherDescription = document.getElementById("weatherDescription");
-            const wind = document.getElementById("wind");
 
-            const apiKey = '580674dfbef72ef4ea665a4ee252dc36';
-            const city = searchValue.value;
-            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-        cityName.innerText = data.name;
-         temperature.innerText = `Temperature: ${data.main.temp}°C`;
-         tempMinMax.innerText = `Min. & Max. temp: ${data.main.temp_min}°C / ${data.main.temp_max}°C`;
-        weather.innerText = `Weather: ${data.weather[0].main}`;
-        weatherDescription.innerText = `Weather Description: ${data.weather[0].description}`;
-        wind.innerText = `Wind: ${data.wind.deg}° at ${data.wind.speed} m/s`;
-    })
-     .catch(error => console.error('Error fetching weather:', error));
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let dashboardTitle = document.getElementById('dashboardTitle');
+
+   
+    let savedDashboardTitle = localStorage.getItem('savedDashboardTitle');
+    if (savedDashboardTitle) {
+        dashboardTitle.innerText = savedDashboardTitle;
     }
+
+  
+    dashboardTitle.addEventListener('input', function() {
+        localStorage.setItem('savedDashboardTitle', dashboardTitle.innerText);
     });
 });
-
-
-
 
 
 
